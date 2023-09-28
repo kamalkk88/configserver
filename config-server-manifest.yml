@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-server
+spec:
+  selector:
+    matchLabels:
+      app: hotel
+      department: configuration
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hotel
+        department: configuration
+    spec:
+      containers:
+        - name: config-server
+          image: "kamalkk88/configserver:sep28dev"

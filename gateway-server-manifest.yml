@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gateway-server
+spec:
+  selector:
+    matchLabels:
+      app: hotel
+      department: gateway
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hotel
+        department: gateway
+    spec:
+      containers:
+        - name: gateway-server
+          image: "kamalkk88/gatewayserver:sep28dev"

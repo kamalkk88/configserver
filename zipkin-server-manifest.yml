@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zipkin-server
+spec:
+  selector:
+    matchLabels:
+      app: hotel
+      department: tracing
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hotel
+        department: tracing
+    spec:
+      containers:
+        - name: zipkin-server
+          image: "openzipkin/zipkin:latest"

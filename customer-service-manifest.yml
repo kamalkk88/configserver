@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-service
+spec:
+  selector:
+    matchLabels:
+      app: hotel
+      department: customerservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hotel
+        department: customerservice
+    spec:
+      containers:
+        - name: customer-service
+          image: "kamalkk88/customerservice:sep28dev"

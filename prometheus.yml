@@ -1,0 +1,48 @@
+scrape_configs:
+  - job_name: 'CUSTOMER-SERVICE-PROMETHEUS-INPUT'
+    metrics_path: '/customer-service/actuator/prometheus'
+    scrape_interval: 3s
+    static_configs:
+      - targets: ['localhost:8072']
+        labels:
+          application: 'CUSTOMER-SERVICE'
+
+  - job_name: 'HOTELMANAGE-SERVICE-PROMETHEUS-INPUT'
+    metrics_path: 'hotelmanage-service/actuator/prometheus'
+    scrape_interval: 3s
+    static_configs:
+      - targets: [ 'localhost:8072' ]
+        labels:
+          application: 'HotelManage-Service-Metrics'
+
+  - job_name: 'RESERVATION-SERVICE-PROMETHEUS-INPUT'
+    metrics_path: 'reservation-service/actuator/prometheus'
+    scrape_interval: 3s
+    static_configs:
+      - targets: [ 'localhost:8072' ]
+        labels:
+          application: 'Reservation-Service-Metrics'
+
+  - job_name: 'PAYMENT-SERVICE-PROMETHEUS-INPUT'
+    metrics_path: 'payment-service/actuator/prometheus'
+    scrape_interval: 3s
+    static_configs:
+      - targets: [ 'localhost:8072' ]
+        labels:
+          application: 'Payment-Service-Metrics'
+
+  - job_name: 'NOTIFICATION-SERVICE-PROMETHEUS-INPUT'
+    metrics_path: 'notification-service/actuator/prometheus'
+    scrape_interval: 3s
+    static_configs:
+      - targets: [ 'localhost:8072' ]
+        labels:
+          application: 'Notification-Service-Metrics'
+
+  - job_name: 'GATEWAY-SERVICE-PROMETHEUS-INPUT'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 3s
+    static_configs:
+      - targets: [ 'localhost:8072' ]
+        labels:
+          application: 'Gateway-Service-Metrics'

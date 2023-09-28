@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-service
+spec:
+  selector:
+    matchLabels:
+      app: hotel
+      department: notificationservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hotel
+        department: notificationservice
+    spec:
+      containers:
+        - name: notification-service
+          image: "kamalkk88/notificationservice:sep28dev"

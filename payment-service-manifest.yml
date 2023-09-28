@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-service
+spec:
+  selector:
+    matchLabels:
+      app: hotel
+      department: paymentservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hotel
+        department: paymentservice
+    spec:
+      containers:
+        - name: payment-service
+          image: "kamalkk88/paymentservice:sep28dev"

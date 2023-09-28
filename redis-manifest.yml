@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+spec:
+  selector:
+    matchLabels:
+      app: hotel
+      department: cache
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hotel
+        department: cache
+    spec:
+      containers:
+        - name: redis
+          image: "redis:latest"
